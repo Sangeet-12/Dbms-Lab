@@ -1,0 +1,73 @@
+select * from tab; 
+desc department;
+select * from department;
+
+alter table department modify name varchar2(30);
+desc department;
+
+alter table department modify building varchar2(30);
+alter table department modify building varchar2(30) not null;
+desc department;
+
+select * from department;
+select * from instructor;
+
+update instructor set salary = salary + salary *.1 where dept_id = (select dept_id from department where name = 'Computer Science');
+update instructor set salary = salary + salary *.2 where dept_id = (select dept_id from department where name = 'History');
+
+update instructor set salary=salary+salary * 5/100 where salary<70000;
+update instructor set salary=salary+salary * 5/100 where salary<80000;
+
+update instructor set salary=salary-salary *5/100 where salary>80000 and salary<85000;
+select * from instructor;
+
+desc course;
+select * from course;
+
+insert into course(course_id,title,dept_id,credits) values ('CS-001','Weekly Seminar',8,1); 
+insert into course(course_id,title,dept_id,credits) values ('CS-001','Weekly Seminar',1,1);
+
+desc section;
+select * from section;
+insert into section(Section_id,course_id,sec_id,semester,year) values(8,'CS-001',1,'FALL',2017);
+
+
+create table emp(emp_id int primary key , name varchar2(20),mobile int);
+desc emp;
+insert into emp(emp_id,name,mobile) values (emp_seq.nextval,'xyz',8784629887);
+insert into emp(emp_id,name,mobile) values (emp_seq.nextval,'xy3z',8784659887);
+insert into emp(emp_id,name,mobile) values (emp_seq.nextval,'xy4z',8784629877);
+insert into emp(emp_id,name,mobile) values (emp_seq.nextval,'xy6z',8784639887);
+insert into emp(emp_id,name,mobile) values (emp_seq.nextval,'xy9z',8784649887);
+select * from emp;
+
+select max(emp_id) from emp;
+
+drop sequence emp_seq; 
+ 
+insert into emp(emp_id,name,mobile) values (emp_seq.nextval,'xy9z',8784649887); 
+select * from emp; 
+
+create sequence emp1_s start with 6 increment by 1;
+insert into emp(emp_id,name,mobile) values (emp1_s.nextval,'xyz10',8784649881);
+insert into emp(emp_id,name,mobile) values (emp1_s.nextval,'xyz11',8784649882);
+insert into emp(emp_id,name,mobile) values (emp1_s.nextval,'xyz12',8784649883);
+insert into emp(emp_id,name,mobile) values (emp1_s.nextval,'xyz13',8784649884);
+insert into emp(emp_id,name,mobile) values (emp1_s.nextval,'xyz14',8784649885);
+
+select * from emp;
+select max(emp_id) from emp;
+
+rename emp to employee;
+alter table employee rename column mobile to mobilenumber;
+
+alter table employee add PINCODE Number(10);
+truncate table employee;
+alter table employee modify PINCODE number not null;
+desc employee;
+
+insert into employee values(emp1_s.nextval,'xyz13',8784249886,211001);
+insert into employee values(emp1_s.nextval,'xyz',8784249887,211002);
+insert into employee values(emp1_s.nextval,'xyz3',8784249838,211003);
+
+select * from employee;
