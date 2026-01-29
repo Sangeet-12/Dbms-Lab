@@ -1,0 +1,33 @@
+create table st_info ( prn int , name varchar2(20), m1 number , m2 number , m3 number);
+
+select * from tab; 
+
+select * from st_info; 
+
+desc st_info;  
+
+insert into st_info(prn,name,m1,m2,m3)values(101,'qqqqw',10,11,23);
+insert into st_info(prn,name,m1,m2,m3)values(102,'akhfh',21,16,24);
+insert into st_info(prn,name,m1,m2,m3)values(103,'wibcb',32,17,44);
+insert into st_info(prn,name,m1,m2,m3)values(104,'wodn',43,19,33);
+insert into st_info(prn,name,m1,m2,m3)values(105,'wfbn',54,20,21);
+insert into st_info(prn,name,m1,m2,m3)values(106,'queuj',65,56,51);
+insert into st_info(prn,name,m1,m2,m3)values(107,'sanss',76,89,34);
+insert into st_info(prn,name,m1,m2,m3)values(108,'poapx',87,65,56);
+insert into st_info(prn,name,m1,m2,m3)values(109,'cncnc',98,34,23);
+insert into st_info(prn,name,m1,m2,m3)values(110,'aopkd',78,71,19);
+
+set linesize 150 
+select * from st_info;
+
+alter table st_info add total number;
+alter table st_info add perc number;
+
+select * from st_info;
+
+
+update st_info set total=m1+m2+m3;
+update st_info set perc=total/3;
+
+alter table st_info modify prn int primary key;
+desc st_info;
